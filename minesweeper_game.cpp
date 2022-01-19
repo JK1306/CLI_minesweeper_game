@@ -96,7 +96,7 @@ void generateMines(char playBoard[N][N], int row, int column){
             for(int j=0; j<N; j++){
                 if(playBoard[i][j] != '*' && (i != row || j != column)){
                     if(rand()%max <= MINE_PROB){
-                        cout<<"Mines in : "<<i<<" "<<j<<endl;
+                        // cout<<"Mines in : "<<i<<" "<<j<<endl;
                         playBoard[i][j] = '*';
                         mineCount++;
                     }
@@ -120,7 +120,41 @@ bool checkWon(char playBoard[N][N]){
     return true;
 }
 
+void printRules(){
+    cout<<"\n";
+    for(int i=0; i<31; i++){
+        cout<<"-";
+    }
+    cout<<"\n|";
+    for(int i=0; i<29; i++){
+        cout<<" ";
+    }
+    cout<<"|\n|";
+    cout<<" WELCOME TO MINESWEEPER GAME ";
+    cout<<"|\n|";
+    for(int i=0; i<29; i++){
+        cout<<" ";
+    }
+    cout<<"|\n";
+    for(int i=0; i<31; i++){
+        cout<<"-";
+    }
+    cout<<"\n\n\n";
+    cout<<"RULES: \n";
+    cout<<"1. The board is divided into cells, with mines randomly distributed.\n2. To win, you need to open all the cells.\n3.The number on a cell shows the number of mines adjacent to it. Using this information, you can determine cells that are safe, and cells that contain mines.\n4. Interact, evolve and enjoy!\n\nHow to Play:\n1. User have to give row and column as input (coordinated where they want to click).\n2. In each step check for win or lose case. In this play board it is used 9*9 matrix.\n";
+    for(int i=0; i<14; i++){
+        cout<<"-";
+    }
+    cout<<endl;
+    cout<<"| GAME START |\n";
+    for(int i=0; i<14; i++){
+        cout<<"-";
+    }
+    cout<<"\n\n";
+}
+
 int main(){
+    printRules();
     char playBoard[N][N] = {
         {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0'},
         {'\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0', '\0'},
